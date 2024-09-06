@@ -1,0 +1,45 @@
+.welcomePage {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .content {
+    padding: var(--space-sm);
+    box-sizing: border-box;
+    text-align: center;
+
+    .description {
+      .primaryText {
+        font-size: 28px;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        .firstPart {
+          color: var(--primary-color);
+        }
+
+        .secondPart {
+          color: var(--secondary-color);
+          font-weight: bold;
+        }
+      }
+    }
+
+    .loginBtn {
+      margin-top: var(--space-md);
+      font-size: var(--space-sm);
+      padding: var(--space-sm) var(--space-xl);
+      background-color: var(--primary-color);
+      color: #fff;
+      transition: 0.2s;
+      border-radius: 2px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.errorNotification {
+  position: absolute;
+  top: var(--space-xs);
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  animation: slide-left 1s ease-in-out;
+  width: 100%;
+
+  .errorMessage {
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin: auto;
+    background-color: var(--error-color);
+    color: #ffff;
+    padding: var(--space-sm) var(--space-lg);
+    max-width: 90%;
+    margin: 0;
+    border-radius: 4px;
+    text-align: center;
+
+    a {
+      color: inherit;
+    }
+  }
+}
+
+@keyframes slide-left {
+  from {
+    top: -100%;
+  }
+  to {
+    top: var(--space-xs);
+  }
+}

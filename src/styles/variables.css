@@ -1,0 +1,17 @@
+:root {
+  /* colors */
+  --primary-text-color: #101010;
+  --secondary-text-color: #707070;
+  --primary-color: #003b5c;
+  --secondary-color: #94b7bb;
+  --tertiary-color: #f7f5f4;
+  --border-color: #d7d7d7;
+  --error-color: #ed0303;
+
+  /* sizing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+}

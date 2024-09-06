@@ -1,0 +1,27 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.2s;
+  height: 100svh;
+  overflow-y: auto;
+  background-color: var(--tertiary-color);
+  box-shadow: 5px 0px 20px 0px #00000026;
+  z-index: 1;
+  padding: var(--space-sm);
+  box-sizing: border-box;
+  width: 364px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+
+  &.closed {
+    transform: translateX(calc(-100% - 20px));
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    width: 100%;
+  }
+}

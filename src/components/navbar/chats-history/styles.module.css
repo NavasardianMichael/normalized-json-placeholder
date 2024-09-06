@@ -1,0 +1,97 @@
+.chatsHistory {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+
+  .category {
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+
+    .chats {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+
+      .chat {
+        position: relative;
+        transition: 0.2s;
+
+        &.active {
+          background-color: #dddddd;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: #dddddd;
+          }
+        }
+
+        .title {
+          text-align: left;
+          border-radius: 4px;
+          overflow: hidden;
+          width: 100%;
+          padding: var(--space-sm);
+
+          .message {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: var(--primary-text-color);
+            font-size: var(--space-sm);
+            margin: 0;
+          }
+        }
+
+        @media (hover: none) {
+          .removeChatBtn svg {
+            background-color: var(--tertiary-color);
+          }
+        }
+
+        @media only screen and (max-width: 600px) {
+          .removeChatBtn {
+            opacity: 1;
+          }
+        }
+
+        @media only screen and (min-width: 601px) {
+          @media (hover: hover) {
+            .removeChatBtn {
+              opacity: 0;
+            }
+
+            &:hover .removeChatBtn {
+              opacity: 1;
+
+              & svg {
+                transition: 0.2s;
+                background-color: #dddddd;
+                &:hover {
+                  fill: #5e5e5e;
+                }
+              }
+            }
+          }
+        }
+
+        .removeChatBtn {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          z-index: 1;
+          display: block;
+          transform: translate(0, calc(-50% + 2px));
+
+          & svg {
+            padding: calc(var(--space-sm) / 2);
+          }
+        }
+      }
+    }
+  }
+}
