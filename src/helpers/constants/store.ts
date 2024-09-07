@@ -3,6 +3,7 @@ export const STATE_SLICE_NAMES = {
   users: 'users',
   posts: 'posts',
   comments: 'comments',
+  todos: 'todos',
 } as const
 
 export const PENDING_STATUSES = {
