@@ -2,8 +2,8 @@ import { Normalized, PartialButRequired } from 'helpers/types/commons'
 import { PendingStatus } from 'helpers/types/store'
 import { User } from 'store/users/types'
 
-export type TodosSlice = {
-  list: Normalized<Todo>
+export type TodosSlice = Normalized<Todo> & {
+  idsByUserId: Record<User['id'], Todo['id'][]>
   pendingStatus: PendingStatus
 }
 
@@ -15,6 +15,6 @@ export type Todo = {
 }
 
 export type TodosActionPayloads = {
-  initTodos: TodosSlice['list']
+  initTodos: Omit<TodosSlice, 'pendingStatus'>
   setTodoOptions: PartialButRequired<Todo, 'id'>
 }

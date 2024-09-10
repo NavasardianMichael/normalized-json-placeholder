@@ -12,6 +12,7 @@ export const processGetPostsResponse: GetPostsAPI['processor'] = (result) => {
     {
       byId: {},
       allIds: [],
+      idsByUserId: [],
     } as GetPostsAPI['processedResult']
   )
 }

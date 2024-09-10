@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { Flex } from 'antd'
-import { Conference } from '@store/conferences/types'
-import { selectSpeeches } from '@store/speeches/selectors'
-import { useAppSelector } from '@hooks/useAppSelector'
+import { Conference } from 'store/conferences/types'
+import { selectSpeeches } from 'store/speeches/selectors'
+import { useAppSelector } from 'hooks/useAppSelector'
 import { DescriptionDetail } from './Detail'
 
 type Props = {

@@ -1,10 +1,10 @@
 import { FC, MouseEventHandler, useCallback } from 'react'
 import { Col, Row } from 'antd'
-import { selectEditableSpeakerId, selectIsSpeakersPending, selectSpeakers } from '@store/speakers/selectors'
-import { setEditableSpeakerId } from '@store/speakers/slice'
-import { Speaker as SpeakerType } from '@store/speakers/types'
-import { useAppDispatch } from '@hooks/useAppDispatch'
-import { useAppSelector } from '@hooks/useAppSelector'
+import { useAppDispatch } from 'hooks/useAppDispatch'
+import { useAppSelector } from 'hooks/useAppSelector'
+import { selectEditableSpeakerId, selectIsSpeakersPending, selectSpeakers } from 'store/speakers/selectors'
+import { setEditableSpeakerId } from 'store/speakers/slice'
+import { Speaker as SpeakerType } from 'store/speakers/types'
 import { Speaker } from './speaker'
 
 export const SpeakersList: FC = () => {

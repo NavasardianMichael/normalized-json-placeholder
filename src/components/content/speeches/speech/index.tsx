@@ -1,9 +1,9 @@
 import { FC, MouseEventHandler } from 'react'
 import { Card, Image, Skeleton } from 'antd'
 import Meta from 'antd/es/card/Meta'
-import { Conference } from '@store/conferences/types'
-import { Speaker } from '@store/speakers/types'
-import { Speech as SpeechType, SpeechesSlice } from '@store/speeches/types'
+import { Conference } from 'store/conferences/types'
+import { Speaker } from 'store/speakers/types'
+import { Speech as SpeechType, SpeechesSlice } from 'store/speeches/types'
 import { Description } from './description'
 
 type Props = {

@@ -1,10 +1,10 @@
 import { FC, MouseEventHandler, useCallback } from 'react'
 import { Col, Row } from 'antd'
-import { selectConferences, selectEditableConferenceId, selectIsConferencesPending } from '@store/conferences/selectors'
-import { setEditableConferenceId } from '@store/conferences/slice'
-import { Conference as ConferenceType } from '@store/conferences/types'
-import { useAppDispatch } from '@hooks/useAppDispatch'
-import { useAppSelector } from '@hooks/useAppSelector'
+import { selectConferences, selectEditableConferenceId, selectIsConferencesPending } from 'store/conferences/selectors'
+import { setEditableConferenceId } from 'store/conferences/slice'
+import { Conference as ConferenceType } from 'store/conferences/types'
+import { useAppDispatch } from 'hooks/useAppDispatch'
+import { useAppSelector } from 'hooks/useAppSelector'
 import { Conference } from './conference'
 
 export const ConferencesList: FC = () => {

@@ -2,8 +2,7 @@ import { Normalized, PartialButRequired } from 'helpers/types/commons'
 import { PendingStatus } from 'helpers/types/store'
 import { Post } from 'store/posts/types'
 
-export type CommentsSlice = {
-  list: Normalized<Comment>
+export type CommentsSlice = Normalized<Comment> & {
   pendingStatus: PendingStatus
 }
 
@@ -16,6 +15,6 @@ export type Comment = {
 }
 
 export type CommentsActionPayloads = {
-  initComments: CommentsSlice['list']
+  initComments: Omit<CommentsSlice, 'pendingStatus'>
   setCommentOptions: PartialButRequired<Comment, 'id'>
 }

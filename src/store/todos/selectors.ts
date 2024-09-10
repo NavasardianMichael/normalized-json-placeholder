@@ -1,5 +1,5 @@
 import { RootState } from 'configs/store'
 
-export const selectComments = (state: RootState) => state.todos
+export const selectTodos = (state: RootState) => state.todos
 
-export const selectCommentsPendingStatus = (state: RootState) => state.todos.pendingStatus
+export const selectTodosPendingStatus = (state: RootState) => state.todos.pendingStatus

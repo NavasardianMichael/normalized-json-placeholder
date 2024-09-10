@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, Layout, Spin } from 'antd'
 import { Tabs } from 'components/content/tabs'
 import { useAppInit } from 'hooks/useAppInit'
-import 'assets/styles/normalize.css'
+import 'styles/normalize.css'
 
 const App: React.FC = () => {
   const { isInitialized } = useAppInit()

@@ -3,10 +3,8 @@ import { PENDING_STATUSES, STATE_SLICE_NAMES } from 'helpers/constants/store'
 import { CommentsActionPayloads, CommentsSlice } from './types'
 
 const initialState: CommentsSlice = {
-  list: {
-    allIds: [],
-    byId: {},
-  },
+  byId: {},
+  allIds: [],
   pendingStatus: PENDING_STATUSES.idle,
 }
 
@@ -15,14 +13,17 @@ export const { reducer: commentsReducer, actions } = createSlice({
   initialState,
   reducers: {
     initComments: (state, { payload }: PayloadAction<CommentsActionPayloads['initComments']>) => {
-      state.list = payload
+      state = {
+        ...state,
+        ...payload,
+      }
     },
     setCommentOptions: (
       state,
       { payload: { id, ...restOptions } }: PayloadAction<CommentsActionPayloads['setCommentOptions']>
     ) => {
-      state.list.byId[id] = {
-        ...state.list.byId[id],
+      state.byId[id] = {
+        ...state.byId[id],
         ...restOptions,
       }
     },

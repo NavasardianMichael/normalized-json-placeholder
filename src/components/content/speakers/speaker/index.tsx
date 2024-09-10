@@ -1,7 +1,7 @@
 import { FC, MouseEventHandler } from 'react'
 import { Card, Image, Skeleton } from 'antd'
 import Meta from 'antd/es/card/Meta'
-import { Speaker as SpeakerType, SpeakersSlice } from '@store/speakers/types'
+import { Speaker as SpeakerType, SpeakersSlice } from 'store/speakers/types'
 import { Description } from './description'
 
 type Props = {

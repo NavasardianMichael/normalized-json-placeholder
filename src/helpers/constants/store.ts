@@ -4,6 +4,8 @@ export const STATE_SLICE_NAMES = {
   posts: 'posts',
   comments: 'comments',
   todos: 'todos',
+  albums: 'albums',
+  photos: 'photos',
 } as const
 
 export const PENDING_STATUSES = {

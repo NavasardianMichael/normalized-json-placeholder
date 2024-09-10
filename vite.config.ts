@@ -9,13 +9,13 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     checker({
-      // typescript: true,
+      typescript: true,
     }),
     svgr({
       include: '**/*.svg',
     }),
   ],
-  base: '/BreakthroughBot/',
+  base: '/normalized-json-placeholder/',
   server: {
     open: true,
     port: 5171,

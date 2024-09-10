@@ -1,12 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { TodosActionPayloads, TodosSlice } from './types'
 import { PENDING_STATUSES, STATE_SLICE_NAMES } from 'helpers/constants/store'
+import { TodosActionPayloads, TodosSlice } from './types'
 
 const initialState: TodosSlice = {
-  list: {
-    allIds: [],
-    byId: {},
-  },
+  byId: {},
+  allIds: [],
+  idsByUserId: [],
   pendingStatus: PENDING_STATUSES.idle,
 }
 
@@ -15,14 +14,17 @@ export const { reducer: todosReducer, actions } = createSlice({
   initialState,
   reducers: {
     initTodos: (state, { payload }: PayloadAction<TodosActionPayloads['initTodos']>) => {
-      state.list = payload
+      state = {
+        ...state,
+        ...payload,
+      }
     },
     setTodoOptions: (
       state,
       { payload: { id, ...restOptions } }: PayloadAction<TodosActionPayloads['setTodoOptions']>
     ) => {
-      state.list.byId[id] = {
-        ...state.list.byId[id],
+      state.byId[id] = {
+        ...state.byId[id],
         ...restOptions,
       }
     },

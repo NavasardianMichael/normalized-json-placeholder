@@ -4,4 +4,5 @@ export type Normalized<T extends { id: number }> = {
 }
 
 export type PartialButRequired<T, K extends keyof T> = Pick<T, K> & Partial<T>
+
 export type PartialButOmit<T, K extends keyof T> = Omit<T, K> & Partial<T>

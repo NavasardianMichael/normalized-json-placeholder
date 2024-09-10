@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { Flex } from 'antd'
-import { Conference } from '@store/conferences/types'
-import { Speaker } from '@store/speakers/types'
-import { Speech } from '@store/speeches/types'
+import { Conference } from 'store/conferences/types'
+import { Speaker } from 'store/speakers/types'
+import { Speech } from 'store/speeches/types'
 import { DescriptionDetail } from './Detail'
 
 type Props = {
