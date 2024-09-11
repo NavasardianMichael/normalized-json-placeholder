@@ -1,22 +1,23 @@
-import { Comment } from 'store/comments/types'
-import { GetCommentsByPostIdAPI } from './types'
+import { Todo } from 'store/todos/types'
+import { GetTodosAPI } from './types'
 
-export const processGetCommentsByPostIdResponse: GetCommentsByPostIdAPI['processor'] = (result) => {
+export const processGetTodosByPostIdResponse: GetTodosAPI['processor'] = (result) => {
   return result.reduce(
-    (acc, comment) => {
-      const processedComment = processCommentResponse(comment)
-      acc.byId[processedComment.id] = processedComment
-      acc.allIds.push(processedComment.id)
+    (acc, todo) => {
+      const processedTodo = processTodoResponse(todo)
+      acc.byId[processedTodo.id] = processedTodo
+      acc.allIds.push(processedTodo.id)
       return acc
     },
     {
       byId: {},
       allIds: [],
-    } as GetCommentsByPostIdAPI['processedResult']
+      idsByUserId: [],
+    } as GetTodosAPI['processedResult']
   )
 }
 
-const processCommentResponse = (comment: GetCommentsByPostIdAPI['response'][number]): Comment => {
+const processTodoResponse = (todo: GetTodosAPI['response'][number]): Todo => {
   // API response not being processed, but the "processor" layer exits to have homogeneous entities and maintainable flow
-  return comment
+  return todo
 }

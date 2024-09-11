@@ -1,11 +1,11 @@
 import { Endpoint } from 'api/shared/types'
-import { Comment, CommentsSlice } from 'store/comments/types'
-import { Post } from 'store/posts/types'
+import { Todo, TodosSlice } from 'store/todos/types'
+import { SliceCommonProps } from 'helpers/types/store'
 
-export type GetCommentsByPostIdAPI = Endpoint<{
-  payload: Post['id']
-  response: CommentResponse[]
-  processed: CommentsSlice['list']
+export type GetTodosAPI = Endpoint<{
+  payload: Todo['id']
+  response: TodoResponse[]
+  processed: Omit<TodosSlice, keyof SliceCommonProps<Todo['id']>>
 }>
 
-export type CommentResponse = Comment
+export type TodoResponse = Todo

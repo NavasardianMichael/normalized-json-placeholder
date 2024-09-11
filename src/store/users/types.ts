@@ -1,10 +1,7 @@
 import { Normalized, PartialButRequired } from 'helpers/types/commons'
-import { PendingStatus } from 'helpers/types/store'
+import { SliceCommonProps } from 'helpers/types/store'
 
-export type UserSlice = {
-  list: Normalized<User>
-  pendingStatus: PendingStatus
-}
+export type UserSlice = Normalized<User> & SliceCommonProps<User['id']>
 
 export type User = {
   id: number
@@ -21,6 +18,6 @@ export type User = {
 }
 
 export type UsersActionPayloads = {
-  initUsers: UserSlice['list']
+  initUsers: Omit<UserSlice, keyof SliceCommonProps<User['id']>>
   setUserOptions: PartialButRequired<User, 'id'>
 }

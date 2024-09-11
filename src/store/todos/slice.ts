@@ -6,7 +6,9 @@ const initialState: TodosSlice = {
   byId: {},
   allIds: [],
   idsByUserId: [],
+  editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
+  errorMessage: '',
 }
 
 export const { reducer: todosReducer, actions } = createSlice({

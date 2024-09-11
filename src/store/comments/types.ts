@@ -1,10 +1,8 @@
-import { Normalized, PartialButRequired } from 'helpers/types/commons'
-import { PendingStatus } from 'helpers/types/store'
 import { Post } from 'store/posts/types'
+import { Normalized, PartialButRequired } from 'helpers/types/commons'
+import { SliceCommonProps } from 'helpers/types/store'
 
-export type CommentsSlice = Normalized<Comment> & {
-  pendingStatus: PendingStatus
-}
+export type CommentsSlice = Normalized<Comment> & SliceCommonProps<Comment['id']>
 
 export type Comment = {
   id: number
@@ -15,6 +13,6 @@ export type Comment = {
 }
 
 export type CommentsActionPayloads = {
-  initComments: Omit<CommentsSlice, 'pendingStatus'>
+  initComments: Omit<CommentsSlice, keyof SliceCommonProps<Comment['id']>>
   setCommentOptions: PartialButRequired<Comment, 'id'>
 }

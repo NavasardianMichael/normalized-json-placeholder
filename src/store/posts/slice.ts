@@ -6,6 +6,8 @@ const initialState: PostsSlice = {
   byId: {},
   allIds: [],
   idsByUserId: [],
+  editableId: 0,
+  errorMessage: '',
   pendingStatus: PENDING_STATUSES.idle,
 }
 

@@ -3,11 +3,11 @@ import { PENDING_STATUSES, STATE_SLICE_NAMES } from 'helpers/constants/store'
 import { UserSlice, UsersActionPayloads } from './types'
 
 const initialState: UserSlice = {
-  list: {
-    allIds: [],
-    byId: {},
-  },
+  allIds: [],
+  byId: {},
+  editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
+  errorMessage: '',
 }
 
 export const { reducer: usersReducer, actions } = createSlice({
@@ -15,14 +15,17 @@ export const { reducer: usersReducer, actions } = createSlice({
   initialState,
   reducers: {
     initUsers: (state, { payload }: PayloadAction<UsersActionPayloads['initUsers']>) => {
-      state.list = payload
+      state = {
+        ...state,
+        ...payload,
+      }
     },
     setUserOptions: (
       state,
       { payload: { id, ...restOptions } }: PayloadAction<UsersActionPayloads['setUserOptions']>
     ) => {
-      state.list.byId[id] = {
-        ...state.list.byId[id],
+      state.byId[id] = {
+        ...state.byId[id],
         ...restOptions,
       }
     },

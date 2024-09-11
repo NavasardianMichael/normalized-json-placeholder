@@ -1,11 +1,8 @@
-import { Normalized, PartialButRequired } from 'helpers/types/commons'
-import { PendingStatus } from 'helpers/types/store'
 import { User } from 'store/users/types'
+import { Normalized, PartialButRequired } from 'helpers/types/commons'
+import { ByUserIdShape, SliceCommonProps } from 'helpers/types/store'
 
-export type TodosSlice = Normalized<Todo> & {
-  idsByUserId: Record<User['id'], Todo['id'][]>
-  pendingStatus: PendingStatus
-}
+export type TodosSlice = Normalized<Todo> & ByUserIdShape<Todo['id']> & SliceCommonProps<Todo['id']>
 
 export type Todo = {
   id: number
@@ -15,6 +12,6 @@ export type Todo = {
 }
 
 export type TodosActionPayloads = {
-  initTodos: Omit<TodosSlice, 'pendingStatus'>
+  initTodos: Omit<TodosSlice, keyof SliceCommonProps<Todo['id']>>
   setTodoOptions: PartialButRequired<Todo, 'id'>
 }

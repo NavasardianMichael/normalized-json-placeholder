@@ -6,7 +6,9 @@ const initialState: AlbumsSlice = {
   byId: {},
   allIds: [],
   idsByUserId: [],
+  editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
+  errorMessage: '',
 }
 
 export const { reducer: albumsReducer, actions } = createSlice({

@@ -5,7 +5,9 @@ import { CommentsActionPayloads, CommentsSlice } from './types'
 const initialState: CommentsSlice = {
   byId: {},
   allIds: [],
+  editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
+  errorMessage: '',
 }
 
 export const { reducer: commentsReducer, actions } = createSlice({

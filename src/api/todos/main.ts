@@ -1,11 +1,11 @@
 import axiosInstance from 'configs/axios'
-import { GetCommentsByPostIdAPI } from './types'
-import { processGetCommentsByPostIdResponse } from './processors'
+import { processGetTodosByPostIdResponse } from './processors'
+import { GetTodosAPI } from './types'
 
-export const getCommentsByPostId: GetCommentsByPostIdAPI['api'] = async (postId) => {
-  const { data } = await axiosInstance.get<GetCommentsByPostIdAPI['response']>(`/comments/${postId}`)
+export const getTodos: GetTodosAPI['api'] = async () => {
+  const { data } = await axiosInstance.get<GetTodosAPI['response']>(`/todos`)
 
-  const processedComments = processGetCommentsByPostIdResponse(data)
+  const processedTodos = processGetTodosByPostIdResponse(data)
 
-  return processedComments
+  return processedTodos
 }

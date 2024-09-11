@@ -1,11 +1,8 @@
-import { Normalized, PartialButRequired } from 'helpers/types/commons'
-import { PendingStatus } from 'helpers/types/store'
 import { User } from 'store/users/types'
+import { Normalized, PartialButRequired } from 'helpers/types/commons'
+import { ByUserIdShape, SliceCommonProps } from 'helpers/types/store'
 
-export type AlbumsSlice = Normalized<Album> & {
-  idsByUserId: Record<User['id'], Album['id'][]>
-  pendingStatus: PendingStatus
-}
+export type AlbumsSlice = Normalized<Album> & ByUserIdShape<Album['id']> & SliceCommonProps<Album['id']>
 
 export type Album = {
   id: number
