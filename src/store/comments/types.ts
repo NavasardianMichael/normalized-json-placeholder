@@ -15,4 +15,5 @@ export type Comment = {
 export type CommentsActionPayloads = {
   initComments: Omit<CommentsSlice, keyof SliceCommonProps<Comment['id']>>
   setCommentOptions: PartialButRequired<Comment, 'id'>
+  setEditableCommentId: Comment['id']
 }

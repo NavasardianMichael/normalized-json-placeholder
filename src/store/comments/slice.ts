@@ -29,9 +29,12 @@ export const { reducer: commentsReducer, actions } = createSlice({
         ...restOptions,
       }
     },
+    setEditableCommentId: (state, { payload }: PayloadAction<CommentsActionPayloads['setEditableCommentId']>) => {
+      state.editableId = payload
+    },
   },
 })
 
-export const { initComments, setCommentOptions } = actions
+export const { initComments, setCommentOptions, setEditableCommentId } = actions
 
 export default commentsReducer

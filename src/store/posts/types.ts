@@ -14,4 +14,5 @@ export type Post = {
 export type PostsActionPayloads = {
   initPosts: Omit<PostsSlice, keyof SliceCommonProps<Post['id']>>
   setPostOptions: PartialButRequired<Post, 'id'>
+  setEditablePostId: Post['id']
 }

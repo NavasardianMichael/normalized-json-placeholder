@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import Title from 'antd/es/typography/Title'
-import { ConferencesList } from './List'
+import { UsersList } from './List'
 
-export const Conferences: FC = () => {
+export const Users: FC = () => {
   return (
     <div>
-      <Title>Conferences</Title>
-      <ConferencesList />
+      <Title>Users</Title>
+      <UsersList />
     </div>
   )
 }

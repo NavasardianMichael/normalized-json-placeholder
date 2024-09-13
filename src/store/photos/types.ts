@@ -15,4 +15,5 @@ export type Photo = {
 export type PhotosActionPayloads = {
   initPhotos: Omit<PhotosSlice, keyof SliceCommonProps<Photo['id']>>
   setPhotoOptions: PartialButRequired<Photo, 'id'>
+  setEditablePhotoId: Photo['id']
 }

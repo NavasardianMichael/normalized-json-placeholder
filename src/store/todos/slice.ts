@@ -30,9 +30,12 @@ export const { reducer: todosReducer, actions } = createSlice({
         ...restOptions,
       }
     },
+    setEditableTodoId: (state, { payload }: PayloadAction<TodosActionPayloads['setEditableTodoId']>) => {
+      state.editableId = payload
+    },
   },
 })
 
-export const { initTodos, setTodoOptions } = actions
+export const { initTodos, setTodoOptions, setEditableTodoId } = actions
 
 export default todosReducer

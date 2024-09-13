@@ -5,7 +5,9 @@ import { PhotosActionPayloads, PhotosSlice } from './types'
 const initialState: PhotosSlice = {
   byId: {},
   allIds: [],
+  editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
+  errorMessage: '',
 }
 
 export const { reducer: photosReducer, actions } = createSlice({
@@ -27,9 +29,12 @@ export const { reducer: photosReducer, actions } = createSlice({
         ...restOptions,
       }
     },
+    setEditablePhotoId: (state, { payload }: PayloadAction<PhotosActionPayloads['setEditablePhotoId']>) => {
+      state.editableId = payload
+    },
   },
 })
 
-export const { initPhotos, setPhotoOptions } = actions
+export const { initPhotos, setPhotoOptions, setEditablePhotoId } = actions
 
 export default photosReducer

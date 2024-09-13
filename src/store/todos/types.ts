@@ -14,4 +14,5 @@ export type Todo = {
 export type TodosActionPayloads = {
   initTodos: Omit<TodosSlice, keyof SliceCommonProps<Todo['id']>>
   setTodoOptions: PartialButRequired<Todo, 'id'>
+  setEditableTodoId: Todo['id']
 }

@@ -1,23 +1,23 @@
 import { Tabs as MUITabs, TabsProps } from 'antd'
-import { Conferences } from 'components/conferences'
-import { Speakers } from 'components/speakers'
-import { Speeches } from 'components/speeches'
+import { Albums } from '../albums'
+import { Todos } from '../todos'
+import { Users } from '../users'
 
 const items: TabsProps['items'] = [
   {
     key: '1',
-    label: 'Conferences',
-    children: <Conferences />,
+    label: 'Users',
+    children: <Users />,
   },
   {
     key: '2',
-    label: 'Speeches',
-    children: <Speeches />,
+    label: 'Albums',
+    children: <Albums />,
   },
   {
     key: '3',
-    label: 'Speakers',
-    children: <Speakers />,
+    label: 'Todos',
+    children: <Todos />,
   },
 ]
 

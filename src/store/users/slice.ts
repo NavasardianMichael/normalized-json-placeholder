@@ -29,9 +29,12 @@ export const { reducer: usersReducer, actions } = createSlice({
         ...restOptions,
       }
     },
+    setEditableUserId: (state, { payload }: PayloadAction<UsersActionPayloads['setEditableUserId']>) => {
+      state.editableId = payload
+    },
   },
 })
 
-export const { initUsers, setUserOptions } = actions
+export const { initUsers, setUserOptions, setEditableUserId } = actions
 
 export default usersReducer

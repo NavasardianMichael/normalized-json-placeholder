@@ -1,9 +1,10 @@
 import { Endpoint } from 'api/shared/types'
-import { UserSlice } from 'store/users/types'
+import { User, UserSlice } from 'store/users/types'
+import { SliceCommonProps } from 'helpers/types/store'
 
 export type GetUsersAPI = Endpoint<{
   response: UserResponse[]
-  processed: UserSlice['list']
+  processed: Omit<UserSlice, keyof SliceCommonProps<User['id']>>
 }>
 
 export type UserResponse = {

@@ -17,13 +17,13 @@ export const processGetUsersResponse: GetUsersAPI['processor'] = (result) => {
 }
 
 const processUserResponse = (user: GetUsersAPI['response'][number]): User => {
+  const { id, email, address, company, name, phone } = user
   return {
-    id: user.id,
-    address: user.address,
-    companyName: user.company.name,
-    email: user.email,
-    name: user.name,
-    phone: user.phone,
-    website: user.website,
+    id,
+    address: `${address.suite}, ${address.street}, ${address.city}`,
+    companyName: company.name,
+    email,
+    name,
+    phone,
   }
 }

@@ -30,9 +30,12 @@ export const { reducer: postsReducer, actions } = createSlice({
         ...restOptions,
       }
     },
+    setEditablePostId: (state, { payload }: PayloadAction<PostsActionPayloads['setEditablePostId']>) => {
+      state.editableId = payload
+    },
   },
 })
 
-export const { initPosts, setPostOptions } = actions
+export const { initPosts, setPostOptions, setEditablePostId } = actions
 
 export default postsReducer

@@ -30,9 +30,12 @@ export const { reducer: albumsReducer, actions } = createSlice({
         ...restOptions,
       }
     },
+    setEditableAlbumId: (state, { payload }: PayloadAction<AlbumsActionPayloads['setEditableAlbumId']>) => {
+      state.editableId = payload
+    },
   },
 })
 
-export const { initAlbums, setAlbumOptions } = actions
+export const { initAlbums, setAlbumOptions, setEditableAlbumId } = actions
 
 export default albumsReducer

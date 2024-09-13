@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getConferencesAsync } from 'store/conferences/thunks'
-import { getSpeakersAsync } from 'store/speakers/thunks'
-import { getSpeechesAsync } from 'store/speeches/thunks'
+import { getAlbumsThunk } from 'store/albums/thunk'
+import { getPostsThunk } from 'store/posts/thunk'
+import { getTodosThunk } from 'store/todos/thunk'
+import { getUsersThunk } from 'store/users/thunk'
 import { useAppDispatch } from './useAppDispatch'
 
 export const useAppInit = () => {
@@ -11,9 +12,10 @@ export const useAppInit = () => {
   useEffect(() => {
     const initApp = async () => {
       const appData = await Promise.all([
-        dispatch(getConferencesAsync()),
-        dispatch(getSpeakersAsync()),
-        dispatch(getSpeechesAsync()),
+        dispatch(getUsersThunk()),
+        dispatch(getAlbumsThunk()),
+        dispatch(getTodosThunk()),
+        dispatch(getPostsThunk()),
       ])
 
       if (appData) setIsInitialized(true)
