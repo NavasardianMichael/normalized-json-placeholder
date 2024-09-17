@@ -3,8 +3,7 @@ import { STATE_SLICE_NAMES } from 'helpers/constants/store'
 import { AppActionPayloads, AppSlice } from './types'
 
 const initialState: AppSlice = {
-  isNavbarOpened: false,
-  removeChatDialogId: '',
+  errorMessage: ''
 }
 
 export const { reducer: appReducer, actions } = createSlice({
@@ -17,15 +16,9 @@ export const { reducer: appReducer, actions } = createSlice({
         ...payload,
       }
     },
-    toggleNavbar: (state) => {
-      state.isNavbarOpened = !state.isNavbarOpened
-    },
-    setIsNavbarOpened: (state, { payload }: PayloadAction<AppActionPayloads['setIsNavbarOpened']>) => {
-      state.isNavbarOpened = payload
-    },
   },
 })
 
-export const { setAppOptions, toggleNavbar, setIsNavbarOpened } = actions
+export const { setAppOptions } = actions
 
 export default appReducer
