@@ -1,20 +1,23 @@
-import { AxiosError, isAxiosError } from 'axios'
+import { AxiosError } from 'axios'
 import { getPhotos } from 'api/photos/main'
-import { Post } from 'store/posts/types'
+import { processPhotoIdsByAlbumId } from 'api/photos/processors'
+import { setPhotoIdsByAlbumId } from 'store/albums/slice'
 import { STATE_SLICE_NAMES } from 'helpers/constants/store'
-import { createAppAsyncThunk } from 'helpers/utils/store'
+import { createAppAsyncThunk, processThunkError } from 'helpers/utils/store'
 import { initPhotos } from './slice'
 
-export const getPhotosThunk = createAppAsyncThunk<void, Post['id']>(
+export const getPhotosThunk = createAppAsyncThunk<void, void>(
   `${STATE_SLICE_NAMES.photos}/getPhotosThunk`,
-  async (postId, { rejectWithValue, dispatch }) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
-      const photosList = await getPhotos(postId)
+      const photosList = await getPhotos()
       dispatch(initPhotos(photosList))
+
+      const photoIdsByAlbumId = processPhotoIdsByAlbumId(photosList)
+      dispatch(setPhotoIdsByAlbumId(photoIdsByAlbumId))
     } catch (e) {
-      const error = e as Error | AxiosError
-      const processedError = isAxiosError(error) ? error?.response?.data : error
-      return rejectWithValue(processedError)
+      const processedError = processThunkError(e as Error | AxiosError, dispatch)
+      rejectWithValue(processedError)
     }
   }
 )

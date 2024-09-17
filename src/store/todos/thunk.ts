@@ -1,7 +1,7 @@
-import { AxiosError, isAxiosError } from 'axios'
+import { AxiosError } from 'axios'
 import { getTodos } from 'api/todos/main'
 import { STATE_SLICE_NAMES } from 'helpers/constants/store'
-import { createAppAsyncThunk } from 'helpers/utils/store'
+import { createAppAsyncThunk, processThunkError } from 'helpers/utils/store'
 import { initTodos } from './slice'
 
 export const getTodosThunk = createAppAsyncThunk<void, void>(
@@ -11,9 +11,8 @@ export const getTodosThunk = createAppAsyncThunk<void, void>(
       const todosList = await getTodos()
       dispatch(initTodos(todosList))
     } catch (e) {
-      const error = e as Error | AxiosError
-      const processedError = isAxiosError(error) ? error?.response?.data : error
-      return rejectWithValue(processedError)
+      const processedError = processThunkError(e as Error | AxiosError, dispatch)
+      rejectWithValue(processedError)
     }
   }
 )

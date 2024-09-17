@@ -21,7 +21,7 @@ export const Description: FC<Props> = ({ data }) => {
   return (
     <Flex gap="small" vertical style={{ marginTop: 12, whiteSpace: 'nowrap' }}>
       {userDetails.map((detailKey) => {
-        return <DescriptionDetail name={detailKey} value={data[detailKey]} />
+        return <DescriptionDetail key={detailKey} name={detailKey} value={data[detailKey]} />
       })}
 
       <Divider>Related Entities</Divider>

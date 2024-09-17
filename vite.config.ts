@@ -18,7 +18,7 @@ export default defineConfig({
   base: '/normalized-json-placeholder/',
   server: {
     open: true,
-    port: 5171,
+    port: 5179,
   },
   build: {
     target: 'esnext',

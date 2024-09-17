@@ -1,5 +1,4 @@
 import { Tabs as MUITabs, TabsProps } from 'antd'
-import { Albums } from '../albums'
 import { Todos } from '../todos'
 import { Users } from '../users'
 
@@ -11,11 +10,6 @@ const items: TabsProps['items'] = [
   },
   {
     key: '2',
-    label: 'Albums',
-    children: <Albums />,
-  },
-  {
-    key: '3',
     label: 'Todos',
     children: <Todos />,
   },

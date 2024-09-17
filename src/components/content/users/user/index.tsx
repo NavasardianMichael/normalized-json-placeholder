@@ -21,6 +21,7 @@ export const User: FC<Props> = ({ data, onClick, isPending }) => {
         style={{ padding: 8, border: '1px solid #f0f0f0', borderRadius: 8 }}
       />
     )
+  console.log({ data })
 
   return (
     <>

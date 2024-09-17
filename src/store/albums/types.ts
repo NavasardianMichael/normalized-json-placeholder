@@ -13,7 +13,8 @@ export type Album = {
 }
 
 export type AlbumsActionPayloads = {
-  initAlbums: Omit<AlbumsSlice, 'pendingStatus'>
+  initAlbums: Omit<AlbumsSlice, keyof SliceCommonProps<Album>>
   setAlbumOptions: PartialButRequired<Album, 'id'>
   setEditableAlbumId: Album['id']
+  setPhotoIdsByAlbumId: Record<Album['id'], Photo['id'][]>
 }

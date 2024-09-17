@@ -1,7 +1,7 @@
+import { AxiosError } from 'axios'
 import { getUsers } from 'api/users/main'
-import { AxiosError, isAxiosError } from 'axios'
 import { STATE_SLICE_NAMES } from 'helpers/constants/store'
-import { createAppAsyncThunk } from 'helpers/utils/store'
+import { createAppAsyncThunk, processThunkError } from 'helpers/utils/store'
 import { initUsers } from './slice'
 
 export const getUsersThunk = createAppAsyncThunk<void, void>(
@@ -9,11 +9,12 @@ export const getUsersThunk = createAppAsyncThunk<void, void>(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const usersList = await getUsers()
+      console.log({ usersList })
+
       dispatch(initUsers(usersList))
     } catch (e) {
-      const error = e as Error | AxiosError
-      const processedError = isAxiosError(error) ? error?.response?.data : error
-      return rejectWithValue(processedError)
+      const processedError = processThunkError(e as Error | AxiosError, dispatch)
+      rejectWithValue(processedError)
     }
   }
 )

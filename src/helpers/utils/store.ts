@@ -1,4 +1,7 @@
-import { Action, AnyAction, createAsyncThunk } from '@reduxjs/toolkit'
+import { Action, createAsyncThunk } from '@reduxjs/toolkit'
+import { AxiosError, isAxiosError } from 'axios'
+import { AppDispatch } from 'configs/store'
+import { setAppOptions } from 'store/app/slice'
 import { StateSliceName, ThunkConfig } from 'helpers/types/store'
 
 export const createAppAsyncThunk = createAsyncThunk.withTypes<ThunkConfig>()
@@ -11,6 +14,14 @@ export const isRejectedAction = (action: Action) => action.type.endsWith('/rejec
 
 export const getSliceActionGroup = (name: StateSliceName) => {
   return (groupName: string) => {
-    return (action: AnyAction) => action.type.startsWith(name) && action.type.endsWith(groupName)
+    return (action: Action) => action.type.startsWith(name) && action.type.endsWith(groupName)
   }
+}
+
+export const processThunkError = (err: Error | AxiosError, dispatch: AppDispatch): Error | AxiosError => {
+  const error = err as Error | AxiosError
+  console.error({ error })
+  const processedError = isAxiosError(error) ? error?.response?.data : error
+  dispatch(setAppOptions({ errorMessage: processedError.message }))
+  return processedError
 }

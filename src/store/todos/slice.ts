@@ -16,7 +16,7 @@ export const { reducer: todosReducer, actions } = createSlice({
   initialState,
   reducers: {
     initTodos: (state, { payload }: PayloadAction<TodosActionPayloads['initTodos']>) => {
-      state = {
+      return {
         ...state,
         ...payload,
       }

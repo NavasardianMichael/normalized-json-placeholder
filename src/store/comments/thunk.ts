@@ -1,9 +1,9 @@
-import { AxiosError, isAxiosError } from 'axios'
-import { STATE_SLICE_NAMES } from 'helpers/constants/store'
-import { createAppAsyncThunk } from 'helpers/utils/store'
-import { Post } from 'store/posts/types'
-import { initComments } from './slice'
+import { AxiosError } from 'axios'
 import { getCommentsByPostId } from 'api/comments/main'
+import { Post } from 'store/posts/types'
+import { STATE_SLICE_NAMES } from 'helpers/constants/store'
+import { createAppAsyncThunk, processThunkError } from 'helpers/utils/store'
+import { initComments } from './slice'
 
 export const getCommentsByPostIdThunk = createAppAsyncThunk<void, Post['id']>(
   `${STATE_SLICE_NAMES.comments}/getCommentsByPostIdThunk`,
@@ -12,9 +12,8 @@ export const getCommentsByPostIdThunk = createAppAsyncThunk<void, Post['id']>(
       const commentsList = await getCommentsByPostId(postId)
       dispatch(initComments(commentsList))
     } catch (e) {
-      const error = e as Error | AxiosError
-      const processedError = isAxiosError(error) ? error?.response?.data : error
-      return rejectWithValue(processedError)
+      const processedError = processThunkError(e as Error | AxiosError, dispatch)
+      rejectWithValue(processedError)
     }
   }
 )

@@ -15,7 +15,7 @@ export const { reducer: photosReducer, actions } = createSlice({
   initialState,
   reducers: {
     initPhotos: (state, { payload }: PayloadAction<PhotosActionPayloads['initPhotos']>) => {
-      state = {
+      return {
         ...state,
         ...payload,
       }

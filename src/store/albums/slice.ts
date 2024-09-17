@@ -16,7 +16,7 @@ export const { reducer: albumsReducer, actions } = createSlice({
   initialState,
   reducers: {
     initAlbums: (state, { payload }: PayloadAction<AlbumsActionPayloads['initAlbums']>) => {
-      state = {
+      return {
         ...state,
         ...payload,
       }
@@ -33,9 +33,14 @@ export const { reducer: albumsReducer, actions } = createSlice({
     setEditableAlbumId: (state, { payload }: PayloadAction<AlbumsActionPayloads['setEditableAlbumId']>) => {
       state.editableId = payload
     },
+    setPhotoIdsByAlbumId: (state, { payload }: PayloadAction<AlbumsActionPayloads['setPhotoIdsByAlbumId']>) => {
+      state.allIds.forEach((albumId) => {
+        state.byId[albumId].photoIds = payload[albumId]
+      })
+    },
   },
 })
 
-export const { initAlbums, setAlbumOptions, setEditableAlbumId } = actions
+export const { initAlbums, setAlbumOptions, setEditableAlbumId, setPhotoIdsByAlbumId } = actions
 
 export default albumsReducer

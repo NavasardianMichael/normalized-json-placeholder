@@ -15,7 +15,7 @@ export const { reducer: usersReducer, actions } = createSlice({
   initialState,
   reducers: {
     initUsers: (state, { payload }: PayloadAction<UsersActionPayloads['initUsers']>) => {
-      state = {
+      return {
         ...state,
         ...payload,
       }

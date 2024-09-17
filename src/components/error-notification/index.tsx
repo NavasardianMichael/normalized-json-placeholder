@@ -1,10 +1,10 @@
 import { FC } from 'react'
+import { selectAppOptions } from 'store/app/selectors'
 import { useAppSelector } from 'hooks/useAppSelector'
-import { selectErrorMessage } from 'store/posts/selectors'
 import styles from './styles.module.css'
 
 const ErrorNotification: FC = () => {
-  const errorMessage = useAppSelector(selectErrorMessage)
+  const { errorMessage } = useAppSelector(selectAppOptions)
 
   if (!errorMessage) return
 

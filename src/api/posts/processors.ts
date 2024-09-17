@@ -7,6 +7,8 @@ export const processGetPostsResponse: GetPostsAPI['processor'] = (result) => {
       const processedPost = processPostResponse(post)
       acc.byId[processedPost.id] = processedPost
       acc.allIds.push(processedPost.id)
+      if (!acc.idsByUserId[processedPost.userId]) acc.idsByUserId[processedPost.userId] = []
+      acc.idsByUserId[processedPost.userId].push(processedPost.id)
       return acc
     },
     {

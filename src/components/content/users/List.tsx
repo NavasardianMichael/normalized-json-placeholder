@@ -13,6 +13,7 @@ export const UsersList: FC = () => {
   const users = useAppSelector(selectUsers)
   const editableId = useAppSelector(selectEditableUserId)
   const usersPendingStatus = useAppSelector(selectUsersPendingStatus)
+  console.log({ users })
 
   const handleEditUser: MouseEventHandler<HTMLDivElement> = useCallback(
     (e) => {

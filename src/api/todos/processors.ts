@@ -7,6 +7,8 @@ export const processGetTodosByPostIdResponse: GetTodosAPI['processor'] = (result
       const processedTodo = processTodoResponse(todo)
       acc.byId[processedTodo.id] = processedTodo
       acc.allIds.push(processedTodo.id)
+      if (!acc.idsByUserId[processedTodo.userId]) acc.idsByUserId[processedTodo.userId] = []
+      acc.idsByUserId[processedTodo.userId].push(processedTodo.id)
       return acc
     },
     {

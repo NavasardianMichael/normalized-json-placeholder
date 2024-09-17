@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAlbumsThunk } from 'store/albums/thunk'
+import { getPhotosThunk } from 'store/photos/thunk'
 import { getPostsThunk } from 'store/posts/thunk'
 import { getTodosThunk } from 'store/todos/thunk'
 import { getUsersThunk } from 'store/users/thunk'
@@ -14,6 +15,7 @@ export const useAppInit = () => {
       const appData = await Promise.all([
         dispatch(getUsersThunk()),
         dispatch(getAlbumsThunk()),
+        dispatch(getPhotosThunk()),
         dispatch(getTodosThunk()),
         dispatch(getPostsThunk()),
       ])

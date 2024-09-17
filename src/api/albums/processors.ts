@@ -7,12 +7,14 @@ export const processGetAlbumsResponse: GetAlbumsAPI['processor'] = (result) => {
       const processedAlbum = processAlbumResponse(album)
       acc.byId[processedAlbum.id] = processedAlbum
       acc.allIds.push(processedAlbum.id)
+      if (!acc.idsByUserId[processedAlbum.userId]) acc.idsByUserId[processedAlbum.userId] = []
+      acc.idsByUserId[processedAlbum.userId].push(processedAlbum.id)
       return acc
     },
     {
       byId: {},
       allIds: [],
-      idsByUserId: [],
+      idsByUserId: {},
     } as GetAlbumsAPI['processedResult']
   )
 }

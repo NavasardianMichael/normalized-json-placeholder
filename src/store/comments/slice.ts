@@ -15,7 +15,7 @@ export const { reducer: commentsReducer, actions } = createSlice({
   initialState,
   reducers: {
     initComments: (state, { payload }: PayloadAction<CommentsActionPayloads['initComments']>) => {
-      state = {
+      return {
         ...state,
         ...payload,
       }
