@@ -1,8 +1,8 @@
 import { Album } from 'store/albums/types'
 import { GetAlbumsAPI } from './types'
 
-export const processGetAlbumsResponse: GetAlbumsAPI['processor'] = (result) => {
-  return result.reduce(
+export const processGetAlbumsResponse: GetAlbumsAPI['processor'] = (response) => {
+  return response.reduce(
     (acc, album) => {
       const processedAlbum = processAlbumResponse(album)
       acc.byId[processedAlbum.id] = processedAlbum

@@ -5,7 +5,7 @@ import { TodosActionPayloads, TodosSlice } from './types'
 const initialState: TodosSlice = {
   byId: {},
   allIds: [],
-  idsByUserId: [],
+  idsByUserId: {},
   editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
   errorMessage: '',

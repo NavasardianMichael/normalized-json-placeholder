@@ -9,7 +9,6 @@ export const getUsersThunk = createAppAsyncThunk<void, void>(
   async (_, { rejectWithValue, dispatch }) => {
     try {
       const usersList = await getUsers()
-      console.log({ usersList })
 
       dispatch(initUsers(usersList))
     } catch (e) {

@@ -13,7 +13,6 @@ const albumDetails: (keyof Album)[] = ['title']
 
 export const Description: FC<Props> = ({ data }) => {
   const photos = useAppSelector(selectPhotos)
-  console.log({ data })
 
   return (
     <>

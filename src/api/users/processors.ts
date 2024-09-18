@@ -1,8 +1,8 @@
 import { User } from 'store/users/types'
 import { GetUsersAPI } from './types'
 
-export const processGetUsersResponse: GetUsersAPI['processor'] = (result) => {
-  return result.reduce(
+export const processGetUsersResponse: GetUsersAPI['processor'] = (response) => {
+  return response.reduce(
     (acc, user) => {
       const processedUser = processUserResponse(user)
       acc.byId[processedUser.id] = processedUser

@@ -1,8 +1,8 @@
 import { Post } from 'store/posts/types'
 import { GetPostsAPI } from './types'
 
-export const processGetPostsResponse: GetPostsAPI['processor'] = (result) => {
-  return result.reduce(
+export const processGetPostsResponse: GetPostsAPI['processor'] = (response) => {
+  return response.reduce(
     (acc, post) => {
       const processedPost = processPostResponse(post)
       acc.byId[processedPost.id] = processedPost
@@ -14,7 +14,7 @@ export const processGetPostsResponse: GetPostsAPI['processor'] = (result) => {
     {
       byId: {},
       allIds: [],
-      idsByUserId: [],
+      idsByUserId: {},
     } as GetPostsAPI['processedResult']
   )
 }

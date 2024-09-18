@@ -5,7 +5,7 @@ import { PostsActionPayloads, PostsSlice } from './types'
 const initialState: PostsSlice = {
   byId: {},
   allIds: [],
-  idsByUserId: [],
+  idsByUserId: {},
   editableId: 0,
   errorMessage: '',
   pendingStatus: PENDING_STATUSES.idle,

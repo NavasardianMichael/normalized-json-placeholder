@@ -35,7 +35,7 @@ export const Description: FC<Props> = ({ data }) => {
       />
       <DescriptionDetail
         name="Posts"
-        value={posts.idsByUserId[data.id].map((postId) => todos.byId[postId].title).join(', ')}
+        value={posts.idsByUserId[data.id].map((postId) => posts.byId[postId].title).join(', ')}
       />
     </Flex>
   )

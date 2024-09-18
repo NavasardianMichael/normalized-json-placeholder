@@ -5,7 +5,7 @@ import { AlbumsActionPayloads, AlbumsSlice } from './types'
 const initialState: AlbumsSlice = {
   byId: {},
   allIds: [],
-  idsByUserId: [],
+  idsByUserId: {},
   editableId: 0,
   pendingStatus: PENDING_STATUSES.idle,
   errorMessage: '',

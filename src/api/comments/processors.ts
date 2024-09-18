@@ -1,8 +1,8 @@
 import { Comment } from 'store/comments/types'
 import { GetCommentsByPostIdAPI } from './types'
 
-export const processGetCommentsByPostIdResponse: GetCommentsByPostIdAPI['processor'] = (result) => {
-  return result.reduce(
+export const processGetCommentsByPostIdResponse: GetCommentsByPostIdAPI['processor'] = (response) => {
+  return response.reduce(
     (acc, comment) => {
       const processedComment = processCommentResponse(comment)
       acc.byId[processedComment.id] = processedComment

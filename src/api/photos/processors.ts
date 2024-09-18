@@ -2,8 +2,8 @@ import { AlbumsSlice } from 'store/albums/types'
 import { Photo } from 'store/photos/types'
 import { GetPhotosAPI } from './types'
 
-export const processGetPhotos: GetPhotosAPI['processor'] = (result) => {
-  return result.reduce(
+export const processGetPhotos: GetPhotosAPI['processor'] = (response) => {
+  return response.reduce(
     (acc, photo) => {
       const processedPhoto = processPhotoResponse(photo)
       acc.byId[processedPhoto.id] = processedPhoto

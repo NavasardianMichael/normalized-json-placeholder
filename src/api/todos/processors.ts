@@ -1,10 +1,13 @@
 import { Todo } from 'store/todos/types'
 import { GetTodosAPI } from './types'
 
-export const processGetTodosByPostIdResponse: GetTodosAPI['processor'] = (result) => {
-  return result.reduce(
+export const processGetTodosByPostIdResponse: GetTodosAPI['processor'] = (response) => {
+  return response.reduce(
     (acc, todo) => {
       const processedTodo = processTodoResponse(todo)
+      const isTooMuchData = acc.idsByUserId[processedTodo.userId]?.length === 2
+      if (isTooMuchData) return acc
+
       acc.byId[processedTodo.id] = processedTodo
       acc.allIds.push(processedTodo.id)
       if (!acc.idsByUserId[processedTodo.userId]) acc.idsByUserId[processedTodo.userId] = []
@@ -14,7 +17,7 @@ export const processGetTodosByPostIdResponse: GetTodosAPI['processor'] = (result
     {
       byId: {},
       allIds: [],
-      idsByUserId: [],
+      idsByUserId: {},
     } as GetTodosAPI['processedResult']
   )
 }
