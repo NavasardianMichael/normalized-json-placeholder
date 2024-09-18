@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Layout, Spin } from 'antd'
-import { Tabs } from 'components/content/tabs'
 import { useAppInit } from 'hooks/useAppInit'
+import { Tabs } from 'components/content/tabs'
 import 'styles/normalize.css'
 
 const App: React.FC = () => {

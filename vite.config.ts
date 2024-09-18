@@ -15,7 +15,7 @@ export default defineConfig({
       include: '**/*.svg',
     }),
   ],
-  base: '/normalized-json-placeholder/',
+  base: '/normalized-json-placeholder',
   server: {
     open: true,
     port: 5179,

@@ -3,7 +3,7 @@ import { STATE_SLICE_NAMES } from 'helpers/constants/store'
 import { AppActionPayloads, AppSlice } from './types'
 
 const initialState: AppSlice = {
-  errorMessage: ''
+  errorMessage: '',
 }
 
 export const { reducer: appReducer, actions } = createSlice({
