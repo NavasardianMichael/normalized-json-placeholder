@@ -1,6 +1,6 @@
 form[data-form-template='custom'] {
   /* Variables */
-  --primary-color: #003b5c;
+  --primary-color: red;
   --border-color: #d7d7d7;
   --error-primary-color: #c81010;
   --error-secondary-color: #c81010;
