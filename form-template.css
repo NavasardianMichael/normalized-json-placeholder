@@ -1,0 +1,215 @@
+form[data-form-template='custom'] {
+  /* Variables */
+  --primary-color: #003b5c;
+  --border-color: #d7d7d7;
+  --error-primary-color: #c81010;
+  --error-secondary-color: #c81010;
+
+  /* Overriding Styles */
+  all: revert;
+
+  table {
+    th:not(.columnContainer.inner) {
+      padding: 0 !important;
+      box-sizing: border-box;
+    }
+  }
+
+  .notification-message {
+    display: none;
+  }
+
+  .containerWrapper.tbContainer.multi {
+    .columnContainer:not(.inner):not(:first-of-type):not(:last-of-type) {
+      th.columnContainer.inner {
+        padding: 0 10px !important;
+
+        &:has(.optionSetFormFieldBlock) {
+          .optionSetFormFieldBlock::after {
+            right: 20px;
+          }
+        }
+      }
+    }
+    .columnContainer:not(.inner) {
+      &:first-of-type {
+        th.columnContainer.inner {
+          padding: 0 10px 0 0 !important;
+
+          &:has(.optionSetFormFieldBlock) {
+            .optionSetFormFieldBlock::after {
+              right: 20px;
+            }
+          }
+        }
+      }
+
+      &:last-of-type {
+        th.columnContainer.inner {
+          padding: 0 0 0 10px !important;
+        }
+      }
+    }
+  }
+
+  .consentBlock {
+    padding: 0 !important;
+    width: 100% !important;
+    text-align: left;
+  }
+
+  /* Form UI Kit */
+  font-size: 14px;
+  font-family: CentraNo2-Book, sans-serif;
+
+  /* Form Title */
+  .columnContainer p {
+    &:has(span) {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    span {
+      font-size: 38px !important;
+      font-family: ChronicleDisplay-Light, sans-serif;
+      line-height: 44px;
+    }
+  }
+
+  label {
+    &:not([for*='Checkbox']) {
+      display: none;
+    }
+
+    &[for*='Checkbox'] {
+      display: inline-block;
+
+      p {
+        margin-top: 0;
+        margin-bottom: 0;
+        transform: translateY(-1px);
+        user-select: none;
+      }
+    }
+  }
+
+  .columnContainer {
+    :has([data-editorblocktype]) {
+      :has(input),
+      :has(select),
+      :has(textarea) {
+        &:has(.form-validation-error) {
+          margin-bottom: 10px;
+        }
+        &:not(:has(.form-validation-error)) {
+          margin-bottom: 20px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-family: CentraNo2-Book, sans-serif;
+  }
+
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    width: 100%;
+    padding: 11px;
+    border: solid 1px var(--border-color);
+    box-sizing: border-box;
+
+    &:focus,
+    &:focus-visible,
+    &:active {
+      outline: none;
+    }
+  }
+
+  input::placeholder {
+    color: #707070;
+  }
+
+  input[type='checkbox'] {
+    margin-right: 5px;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  textarea {
+    width: 100% !important;
+    resize: none;
+  }
+
+  .columnContainer:has(.optionSetFormFieldBlock) {
+    position: relative;
+
+    .optionSetFormFieldBlock::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 4.5px 0 4.5px;
+      border-color: #000 transparent transparent transparent;
+      vertical-align: 0.255em;
+      position: absolute;
+      right: 10px;
+      top: 18px;
+      bottom: 0;
+      z-index: 2;
+    }
+  }
+
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+
+    option {
+      width: 100%;
+      color: #707070;
+    }
+  }
+
+  [data-editorblocktype*='SubmitButton'] {
+    text-align: center;
+
+    button[type='submit'] {
+      background-color: #fff;
+      color: var(--primary-color);
+      border-radius: 0;
+      border: 1px solid;
+      border-width: 1px 1px 4px 1px;
+      border-color: var(--primary-color);
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1.04px;
+      padding: 0 40px;
+      height: 45px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-weight: bolder;
+
+      &:hover {
+        background-color: var(--primary-color) !important;
+        border-color: var(--primary-color);
+        color: #fff !important;
+      }
+    }
+  }
+
+  .form-validation-error {
+    color: var(--error-primary-color);
+    text-align: left;
+    line-height: 24px;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}
