@@ -1,6 +1,6 @@
-form[data-form-template='custom'] {
+form[data-form-template="custom"] {
   /* Variables */
-  --primary-color: red;
+  --primary-color: #003b5c;
   --border-color: #d7d7d7;
   --error-primary-color: #c81010;
   --error-secondary-color: #c81010;
@@ -19,22 +19,32 @@ form[data-form-template='custom'] {
     display: none;
   }
 
-  .containerWrapper.tbContainer.multi {
-    .columnContainer:not(.inner):not(:first-of-type):not(:last-of-type) {
-      th.columnContainer.inner {
-        padding: 0 10px !important;
+  .consentBlock {
+    padding: 0 !important;
+    width: 100% !important;
+    text-align: left;
+  }
 
-        &:has(.optionSetFormFieldBlock) {
-          .optionSetFormFieldBlock::after {
-            right: 20px;
-          }
-        }
-      }
+  @media only screen and (max-width: 768px) {
+    .multi tbody,
+    .multi tbody tr,
+    .multi tbody tr td,
+    .multi tbody tr th,
+    .outer tbody,
+    .outer tbody tr,
+    .outer tbody tr td,
+    .outer tbody tr th {
+      display: block;
+      height: auto !important;
+      width: 100% !important;
     }
-    .columnContainer:not(.inner) {
-      &:first-of-type {
+  }
+
+  @media only screen and (min-width: 769px) {
+    .containerWrapper.tbContainer.multi {
+      .columnContainer:not(.inner):not(:first-of-type):not(:last-of-type) {
         th.columnContainer.inner {
-          padding: 0 10px 0 0 !important;
+          padding: 0 10px !important;
 
           &:has(.optionSetFormFieldBlock) {
             .optionSetFormFieldBlock::after {
@@ -43,19 +53,40 @@ form[data-form-template='custom'] {
           }
         }
       }
+      .columnContainer:not(.inner) {
+        &:first-of-type {
+          th.columnContainer.inner {
+            padding: 0 10px 0 0 !important;
 
-      &:last-of-type {
-        th.columnContainer.inner {
-          padding: 0 0 0 10px !important;
+            &:has(.optionSetFormFieldBlock) {
+              .optionSetFormFieldBlock::after {
+                right: 20px;
+              }
+            }
+          }
+        }
+
+        &:last-of-type {
+          th.columnContainer.inner {
+            padding: 0 0 0 10px !important;
+          }
         }
       }
     }
   }
 
-  .consentBlock {
-    padding: 0 !important;
-    width: 100% !important;
-    text-align: left;
+  @media only screen and (max-width: 768px) {
+    table {
+      th.columnContainer.inner {
+        padding: 0 !important;
+        width: 100% !important;
+        &:has(.optionSetFormFieldBlock) {
+          .optionSetFormFieldBlock::after {
+            right: 16px;
+          }
+        }
+      }
+    }
   }
 
   /* Form UI Kit */
@@ -77,11 +108,11 @@ form[data-form-template='custom'] {
   }
 
   label {
-    &:not([for*='Checkbox']) {
+    &:not([for*="Checkbox"]) {
       display: none;
     }
 
-    &[for*='Checkbox'] {
+    &[for*="Checkbox"] {
       display: inline-block;
 
       p {
@@ -116,7 +147,7 @@ form[data-form-template='custom'] {
     font-family: CentraNo2-Book, sans-serif;
   }
 
-  input:not([type='checkbox']),
+  input:not([type="checkbox"]),
   select,
   textarea {
     width: 100%;
@@ -135,7 +166,7 @@ form[data-form-template='custom'] {
     color: #707070;
   }
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     margin-right: 5px;
     margin-left: 0;
     margin-top: 0;
@@ -150,7 +181,7 @@ form[data-form-template='custom'] {
     position: relative;
 
     .optionSetFormFieldBlock::after {
-      content: '';
+      content: "";
       width: 0;
       height: 0;
       border-style: solid;
@@ -177,10 +208,10 @@ form[data-form-template='custom'] {
     }
   }
 
-  [data-editorblocktype*='SubmitButton'] {
+  [data-editorblocktype*="SubmitButton"] {
     text-align: center;
 
-    button[type='submit'] {
+    button[type="submit"] {
       background-color: #fff;
       color: var(--primary-color);
       border-radius: 0;
